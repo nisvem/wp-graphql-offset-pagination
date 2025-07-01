@@ -263,5 +263,26 @@ class Loader
                 'description' => 'Paginate users with offsets',
             ]
         );
+
+        // Add offsetPagination argument to the products connection (ProductUnion)
+        register_graphql_field(
+            'RootQueryToProductUnionConnectionWhereArgs',
+            'offsetPagination',
+            [
+                'type'        => 'OffsetPagination',
+                'description' => 'Paginate products with offsets',
+            ]
+        );
+
+
+        // Add offsetPagination metadata to pageInfo for products
+        register_graphql_field(
+            'RootQueryToProductUnionConnectionPageInfo',
+            'offsetPagination',
+            [
+                'type'        => 'OffsetPaginationPageInfo',
+                'description' => 'Offset pagination metadata for products',
+            ]
+        );
     }
 }
